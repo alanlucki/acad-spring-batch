@@ -12,15 +12,13 @@ public class ComercioItemProcessor implements ItemProcessor<Comercio,Comercio> {
 
     @Override
     public Comercio process(Comercio item) throws Exception {
-        // TODO Auto-generated method stub
-
         String contrato = item.getContrato() ;
         String comercio = item.getComercio() ;
         String validacion = item.getValidacion() ;
 
         Comercio comer = new Comercio(contrato,comercio,validacion);
-        LOG.info("INICIAL : " + item.toString() + " - FINAL :" + comer.toString());
-
+        LOG.info("Convirtiendo ("+item+") a ("+comer+")");
+	
         return comer;
     }
     

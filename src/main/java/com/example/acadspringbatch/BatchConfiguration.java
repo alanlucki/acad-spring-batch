@@ -37,7 +37,8 @@ public class BatchConfiguration {
     public FlatFileItemReader<Comercio> reader() {
         return new FlatFileItemReaderBuilder<Comercio>()
                 .name("comercioItemReader")
-                .resource(new ClassPathResource("sample-data.cvs"))
+                //.resource(new ClassPathResource("sample-data.csv"))
+                .resource(new ClassPathResource("comercios"))
                 .delimited()
                 .names(new String[] { "contrato", "comercio", "validacion" })
                 .fieldSetMapper(new BeanWrapperFieldSetMapper<Comercio>() {
@@ -75,7 +76,7 @@ public class BatchConfiguration {
 	@Bean
 	public Step step1(JdbcBatchItemWriter<Comercio> writer) {
 		return stepBuilderFactory.get("step1")
-				.<Comercio, Comercio> chunk(10)
+				.<Comercio, Comercio> chunk(2)
 				.reader(reader())
 				.writer(writer)
 				.build();

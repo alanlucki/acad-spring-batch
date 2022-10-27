@@ -10,6 +10,7 @@ public class Comercio {
         super();
     }
     public Comercio(String contrato, String comercio, String validacion) {
+        super();
         this.contrato = contrato;
         this.comercio = comercio;
         this.validacion = validacion;
@@ -41,7 +42,7 @@ public class Comercio {
     
     @Override
     public String toString() {
-        return "Comercio{" + "contrato=" + contrato + ", comercio=" + comercio + ", validacion=" + validacion + '}';
+        return "Comercio [contrato=" + contrato + ", comercio=" + comercio + ", validacion=" + validacion + "]";
     }
 
 }
